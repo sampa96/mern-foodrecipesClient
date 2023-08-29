@@ -12,7 +12,7 @@ export const Home = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/recipes");
+        const response = await axios.get("https://mern-foodrecipeapp-63da2ba29bd3.herokuapp.com/recipes");
         setRecipes(response.data);
       } catch (err) {
         console.log(err);
@@ -23,7 +23,7 @@ export const Home = () => {
     const fetchSavedRecipes = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/recipes/savedRecipes/ids/${userID}`
+          `https://mern-foodrecipeapp-63da2ba29bd3.herokuapp.com/recipes/savedRecipes/ids/${userID}`
         );
         setSavedRecipes(response.data.savedRecipes);
       } catch (err) {
@@ -38,7 +38,7 @@ export const Home = () => {
   //Function to save a receipe. User creates a recipes and then review it before saving it in databse.
   const saveRecipe = async (recipeID) => {
     try {
-      const response = await axios.put("http://localhost:3001/recipes", {
+      const response = await axios.put("https://mern-foodrecipeapp-63da2ba29bd3.herokuapp.com/recipes", {
         recipeID,
         userID,
       });
